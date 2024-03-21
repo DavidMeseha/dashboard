@@ -1,0 +1,55 @@
+.progress-container {
+  position: relative;
+  border-radius: 9rem;
+  height: 1.2rem;
+  width: 100%;
+  overflow: hidden;
+  background-color: var(--pink-color);
+}
+
+.progress {
+  position: absolute;
+  border-radius: 9rem;
+  width: 0;
+  bottom: 0;
+  top: 0;
+  left: 0;
+  transition: all 0.8s cubic-bezier(0.52, 0.22, 0.29, 0.82) 0s;
+  transition-delay: 200ms;
+  background-color: var(--green-color);
+}
+
+.progress-bar .progress {
+  background: linear-gradient(
+    90deg,
+    var(--content-color) 0%,
+    var(--green-color) 100%
+  );
+}
+
+.progress-bar.progress-container {
+  background-color: var(--main-background-color);
+}
+
+.bolar-bar-labels {
+  display: flex;
+  justify-content: space-between;
+  margin-bottom: 0.5rem;
+}
+
+.progress-value.left {
+  left: 1rem;
+}
+
+.progress-value {
+  position: absolute;
+  z-index: 2;
+  right: 1rem;
+  top: 1px;
+}
+
+.progress-set-layout {
+  display: grid;
+  grid-template-columns: 0.2fr 1fr;
+  gap: 1.5rem;
+}

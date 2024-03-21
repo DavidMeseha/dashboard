@@ -1,0 +1,55 @@
+.dashboard-grid {
+  display: grid;
+  grid-template-columns: repeat(6, 1fr);
+  gap: 2rem;
+  color: black !important;
+}
+
+.summery-card {
+  display: flex;
+  align-items: center;
+  gap: 1rem;
+  grid-column: span 2;
+}
+
+.summery-card .icon-container {
+  border: 1px solid var(--pink-color);
+  border-radius: 0.5rem;
+  padding: 1rem;
+  fill: var(--content-color);
+}
+
+.summery-card h4 {
+  margin-bottom: 0.5rem;
+  color: var(--suptitle-color);
+}
+
+.icon-container svg {
+  width: 1.3rem;
+}
+
+.card {
+  background-color: var(--secondry-background-color);
+  padding: 1rem;
+  border-radius: 0.5rem;
+}
+
+.sales-card, .statistics-card {
+  grid-column: span 3;
+  grid-row: 2;
+}
+
+.card-header {
+  display: flex;
+  justify-content: space-between;
+  margin-bottom: 2rem;
+}
+
+.overview-card {
+  grid-row: 3;
+  grid-column: span 2;
+}
+
+.overview-card h2 {
+  margin: 0;
+}
