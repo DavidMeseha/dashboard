@@ -34,7 +34,8 @@
   border-radius: 0.5rem;
 }
 
-.sales-card, .statistics-card {
+.sales-card,
+.statistics-card {
   grid-column: span 3;
   grid-row: 2;
 }
@@ -50,6 +51,68 @@
   grid-column: span 2;
 }
 
-.overview-card h2 {
-  margin: 0;
+.legend {
+  width: 50%;
+  margin-top: 2rem;
+}
+
+.legend li div {
+  width: 1rem;
+  height: 1rem;
+}
+
+@media (max-width: 960px) {
+  .summery-card:nth-child(1) {
+    grid-row: 1;
+    grid-column: span 6;
+  }
+  .summery-card:nth-child(2) {
+    grid-row: 2;
+    grid-column: span 6;
+  }
+  .summery-card:nth-child(3) {
+    grid-row: 3;
+    grid-column: span 6;
+  }
+
+  .sales-card,
+  .statistics-card {
+    grid-row: 4;
+  }
+
+  .overview-card {
+    grid-row: 5;
+    grid-column: span 6;
+  }
+
+  .overview-card:nth-child(2n) {
+    grid-row: 6;
+  }
+
+  .overview-card:nth-child(3n) {
+    grid-row: 7;
+  }
+}
+
+@media (max-width: 768px) {
+  .sales-card {
+    grid-row: 5;
+    grid-column: span 6;
+  }
+  .statistics-card {
+    grid-row: 4;
+    grid-column: span 6;
+  }
+
+  .overview-card {
+    grid-row: 6;
+  }
+
+  .overview-card:nth-child(2n) {
+    grid-row: 7;
+  }
+
+  .overview-card:nth-child(3n) {
+    grid-row: 8;
+  }
 }

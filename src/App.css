@@ -46,6 +46,7 @@ aside.close .logo i {
 .logo i {
   opacity: 1;
   transition: opacity 300ms, width 300ms;
+  color: var(--content-color);
 }
 
 .logo {
@@ -106,6 +107,9 @@ aside.close .navItem:hover {
 
 header {
   position: sticky;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
   top: 0;
   padding: 1rem;
   background-color: var(--secondry-background-color);
@@ -113,12 +117,22 @@ header {
   z-index: 3;
 }
 
+.hamburger {
+  width: 2.5rem;
+  display: none;
+}
+
+.hamburger div {
+  height: 0.3rem;
+  margin-bottom: 0.5rem;
+  background-color: var(--pink-color);
+}
+
 header .user-dropdown {
   display: flex;
   align-items: center;
   justify-content: space-between;
   width: 12rem;
-  margin-inline-start: auto;
   padding: 0.5rem;
   border: 1px solid var(--pink-color);
   background-color: var(--main-background-color);
@@ -143,4 +157,39 @@ header .user {
 
 .img-container img {
   width: 100%;
+}
+
+@media (max-width: 960px) {
+  aside.close ~ .app-warpper,
+  aside.open ~ .app-warpper {
+    margin-inline-start: 0;
+  }
+
+  aside.open,
+  aside.close {
+    width: 100%;
+  }
+
+  aside.close {
+    transform: translateX(-100%);
+    box-shadow: unset;
+  }
+
+  aside.open {
+    transform: translateX(0);
+    box-shadow: 10px 0px 18px 0px var(--main-background-color);
+  }
+
+  aside.close .navItem:hover {
+    width: auto;
+  }
+
+  aside.close .navItem .nav-link p,
+  aside.close .logo i {
+    opacity: 1;
+  }
+
+  .hamburger{
+    display: block;
+  }
 }

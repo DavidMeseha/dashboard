@@ -8,6 +8,11 @@ import {
   Legend,
   Pie,
   PieChart,
+  PolarAngleAxis,
+  PolarGrid,
+  PolarRadiusAxis,
+  Radar,
+  RadarChart,
   ResponsiveContainer,
   Tooltip,
   XAxis,
@@ -76,10 +81,38 @@ export default function Dashboard() {
     },
   ];
 
+  const data03 = [
+    {
+      name: "Electronics",
+      value: 1000,
+      total: 4020,
+    },
+    {
+      name: "Grocery",
+      value: 800,
+      total: 4020,
+    },
+    {
+      name: "Women's",
+      value: 1000,
+      total: 4020,
+    },
+    {
+      name: "Men's",
+      value: 420,
+      total: 4020,
+    },
+    {
+      name: "Furniture",
+      value: 800,
+      total: 4020,
+    },
+  ];
+
   return (
     <div className="dashboard-grid">
-      {[1, 2, 3].map(() => (
-        <div className="card summery-card">
+      {[1, 2, 3].map((v) => (
+        <div key={v} className="card summery-card">
           <div className="icon-container">
             <UsersIcon />
           </div>
@@ -91,7 +124,7 @@ export default function Dashboard() {
       ))}
       <div className="card sales-card">
         <div className="card-header">
-          <h2>Title</h2>
+          <h2>Sales</h2>
           <div className="dropdown">
             <p>Monthly</p>
             <div className="arrow-down"></div>
@@ -128,23 +161,20 @@ export default function Dashboard() {
             labelB="COD"
           />
         </div>
-        <div className="card-header">
-          <h2>Title</h2>
-          <div className="dropdown">
-            <p>Monthly</p>
-            <div className="arrow-down"></div>
-          </div>
-        </div>
+        <h2 className="mb-2">Products</h2>
         <ProgressBarLayout total={3320}>
-          <ProgressBar label="Electronics" max={3320} value={1000} />
-          <ProgressBar label="Grocery" max={3320} value={200} />
-          <ProgressBar label="Women's" max={3320} value={1500} />
-          <ProgressBar label="Men's wear" max={3320} value={120} />
-          <ProgressBar label="Furniture" max={3320} value={500} />
+          {data03.map((data, i) => (
+            <ProgressBar
+              key={i}
+              label={data.name}
+              max={data.total}
+              value={data.value}
+            />
+          ))}
         </ProgressBarLayout>
       </div>
       <div className="card overview-card">
-        <h2 className="mb-2">Wearhouse</h2>
+        <h2 className="mb-1">Wearhouse</h2>
         <ResponsiveContainer width="100%" height={150}>
           <PieChart>
             <Pie
@@ -171,30 +201,44 @@ export default function Dashboard() {
         </ResponsiveContainer>
       </div>
       <div className="card overview-card">
-        <h2 className="mb-2">Wearhouse</h2>
+        <h2 className="mb-1">Stats</h2>
         <div className="d-flex justify-content-between">
-          <ul style={{ width: "50%", marginTop: 25 }}>
-            <li className="d-flex gap-05 mb-1 align-items-center">
+          <ul className="legend">
+            <li
+              color="#ff0808"
+              className="d-flex gap-05 mb-1 align-items-center"
+            >
               <div
-                style={{ width: 20, height: 20, backgroundColor: "white" }}
+                style={{
+                  backgroundColor: "#ff0808",
+                }}
               ></div>
-              UV: 1000
+              UV: {data02[0].uv}
             </li>
-            <li className="d-flex gap-05 mb-1 align-items-center">
+            <li
+              color="#46bcff"
+              className="d-flex gap-05 mb-1 align-items-center"
+            >
               <div
-                style={{ width: 20, height: 20, backgroundColor: "white" }}
+                style={{
+                  backgroundColor: "#46bcff",
+                }}
               ></div>
-              UV: 1000
+              PV: {data02[0].pv}
             </li>
-            <li className="d-flex gap-05 mb-1 align-items-center">
+            <li
+              color="#4cd3c2"
+              className="d-flex gap-05 mb-1 align-items-center"
+            >
               <div
-                style={{ width: 20, height: 20, backgroundColor: "white" }}
+                style={{
+                  backgroundColor: "#4cd3c2",
+                }}
               ></div>
-              UV: 1000
+              GV: {data02[0].gv}
             </li>
           </ul>
           <BarChart barGap={0} data={data02} height={120} width={100}>
-            <Tooltip cursor={false} label="Something:" />
             <Bar dataKey="pv" fill="#46bcff">
               <LabelList position="top" fontSize={10} dataKey="pvp" />
             </Bar>
@@ -208,7 +252,25 @@ export default function Dashboard() {
         </div>
       </div>
       <div className="card overview-card">
-        <h2 className="mb-2">Wearhouse</h2>
+        <h2 className="mb-1">Products Sales</h2>
+        <ResponsiveContainer height={150} width="100%">
+          <RadarChart data={data03}>
+            <PolarGrid opacity={0.4} />
+            <PolarAngleAxis dataKey="name" fontSize={12} />
+            <PolarRadiusAxis
+              angle={19}
+              domain={[0, 1200]}
+              opacity={0.4}
+              fontSize={10}
+            />
+            <Radar
+              dataKey="value"
+              stroke="#4cd3c2"
+              fill="#4cd3c2"
+              fillOpacity={0.6}
+            />
+          </RadarChart>
+        </ResponsiveContainer>
       </div>
     </div>
   );
