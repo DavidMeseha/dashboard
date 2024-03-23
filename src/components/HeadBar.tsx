@@ -1,13 +1,14 @@
 import HampurgerButton from "./HampurgerButton";
 
-export default function HeadBar() {
+interface HeadBarProps {
+  openMobileNav: () => void;
+}
+
+export default function HeadBar({ openMobileNav }: HeadBarProps) {
   return (
     <header>
       <div>
-        <HampurgerButton
-          className="hamburger"
-          onClick={() => console.log("Hello")}
-        />
+        <HampurgerButton className="hamburger" onClick={openMobileNav} />
       </div>
       <a href="#" className="user-dropdown">
         <div className="user">

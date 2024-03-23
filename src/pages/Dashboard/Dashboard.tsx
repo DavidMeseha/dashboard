@@ -130,7 +130,7 @@ export default function Dashboard() {
             <div className="arrow-down"></div>
           </div>
         </div>
-        <ResponsiveContainer width="100%" height={400}>
+        <ResponsiveContainer width="100%" height={390}>
           <AreaChart data={data}>
             <Tooltip />
             <defs>

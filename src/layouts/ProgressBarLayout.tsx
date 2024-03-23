@@ -10,7 +10,7 @@ const ProgressBarLayout: React.FC<ProgressBarLayoutProps> = ({
   return (
     <>
       <div className="progress-set-layout mb-2">{children}</div>
-      <div className="d-flex justify-content-between mb-2">
+      <div className="d-flex justify-content-between">
         <h4>Total</h4>
         <p>{total}</p>
       </div>

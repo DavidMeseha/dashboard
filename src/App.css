@@ -4,7 +4,7 @@
 }
 
 main {
-  padding: 2rem;
+  padding: 1rem;
 }
 
 aside {
@@ -189,7 +189,7 @@ header .user {
     opacity: 1;
   }
 
-  .hamburger{
+  .hamburger {
     display: block;
   }
 }

@@ -11,7 +11,7 @@ export default function Users() {
         justifyContent: "center",
         alignItems: "center",
         fontSize: "10rem",
-        zIndex: 20,
+        zIndex: 1,
       }}
     >
       Soon
